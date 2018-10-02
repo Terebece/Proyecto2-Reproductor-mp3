@@ -33,12 +33,6 @@ class TestPerson(unittest.TestCase):
         self.person5.addOcuppation("DJ")
         self.assertEqual("DJ", self.person5.getOccupation())
 
-    def testAddGropus(self):
-        self.person6 = Person.Person("Fergie")
-        self.assertEqual("", self.person6.getGroups())
-        self.person6.addGroups("The Black Eyed Peas")
-        self.assertEqual("The Black Eyed Peas", self.person6.getGroups())
-
     def testAddSongs(self):
         self.person7 = Person.Person("Ellie Goulding")
         self.assertEqual("", self.person7.getSongs())
@@ -84,12 +78,6 @@ class TestPerson(unittest.TestCase):
         self.assertEqual("", self.person14.getOccupation())
         self.person14.addOcuppation("Interprete")
         self.assertEqual("Interprete", self.person14.getOccupation())
-
-    def testGetGroups(self):
-        self.person15 = Person.Person("Benny Andersson")
-        self.assertEqual("", self.person15.getGroups())
-        self.person15.addGroups("ABBA")
-        self.assertEqual("ABBA", self.person15.getGroups())
 
     def testGetSongs(self):
         self.person16 = Person.Person("Alan Walker")

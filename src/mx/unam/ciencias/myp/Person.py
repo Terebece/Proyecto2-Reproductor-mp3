@@ -2,7 +2,7 @@ import BandaMusical
 
 class Person():
 
-    tipos = ["Autor", "Letrista", "Compositor", "Interprete", "Integrante de ", "Cantautor", "DJ"]
+    tipos = ["Autor", "Compositor", "Interprete", "Integrante de ", "Cantautor", "DJ"]
 
     def __init__(self, identifier):
         self.identifier = identifier
@@ -11,7 +11,6 @@ class Person():
         self.birthDate = ""
         self.deathDate = ""
         self.occupation = ""
-        self.groups = []
         self.songs = []
         self.albums = []
 
@@ -32,9 +31,6 @@ class Person():
 
     def getOccupation(self):
         return self.occupation
-
-    def getGroups(self):
-        return self.getString(self.groups)
 
     def getSongs(self):
         return self.getString(self.songs)
@@ -71,9 +67,6 @@ class Person():
             self.occupation = self.occupation + ", " + occupation
         else:
             self.occupation = occupation
-
-    def addGroups(self, group):
-        self.groups.append(group)
 
     def addSongs(self, song):
         self.songs.append(song)
