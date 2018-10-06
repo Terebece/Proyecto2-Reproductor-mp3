@@ -1,16 +1,12 @@
 class Albums():
 
-    def __init__(self, identifier, path):
-        self.identifier = identifier
+    def __init__(self, path, name):
         self.path = path
-        self.name = ""
+        self.name = name
         self.year = 0
         self.genre = ""
-        self.group = ""
+        self.artist = ""
         self.songs = []
-
-    def getIdentifier(self):
-        return self.identifier
 
     def getPath(self):
         return self.path
@@ -21,12 +17,6 @@ class Albums():
     def getYear(self):
         return self.year
 
-    def setName(self, name):
-        self.name = name
-
-    def setYear(self, year):
-        self.year = year
-
     def getGenre(self):
         return self.genre
 
@@ -36,11 +26,17 @@ class Albums():
     def getSongs(self):
         return self.songs
 
+    def setName(self, name):
+        self.name = name
+
+    def setYear(self, year):
+        self.year = year
+
     def setGroup(self, group):
         self.group = group
 
-    def addSong(self, song):
-        self.songs.append(song)
-
     def setGenre(self, genre):
         self.genre = genre
+
+    def addSong(self, song):
+        self.songs.append(song)
