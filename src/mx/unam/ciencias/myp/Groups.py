@@ -18,13 +18,25 @@ class Groups():
         return self.endDate
 
     def getIntegrants(self):
-        return self.integrants
+        return self.getString(self.integrants)
 
     def getSongs(self):
-        return self.songs
+        return self.getString(self.songs)
 
     def getGenre(self):
         return self.genre
+
+    def getString(self, lista):
+        obt = ""
+        i = 0
+        for elem in lista:
+            if lista[i] == elem:
+                if(i == (len(lista)-1)):
+                    obt = obt + elem
+                else:
+                    obt = obt + elem + ", "
+                i += 1
+        return obt
 
     def setName(self, name):
         self.name = name
