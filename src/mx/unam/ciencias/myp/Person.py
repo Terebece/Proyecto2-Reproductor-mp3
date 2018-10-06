@@ -12,9 +12,6 @@ class Person():
         self.songs = []
         self.albums = []
 
-    def getIdentifier(self):
-        return self.identifier
-
     def getStageName(self):
         return self.stageName
 
@@ -49,7 +46,7 @@ class Person():
         return obt
 
     def getGenre(self):
-        return self.self
+        return self.genre
 
     def setStageName(self, stageName):
         self.stageName = stageName

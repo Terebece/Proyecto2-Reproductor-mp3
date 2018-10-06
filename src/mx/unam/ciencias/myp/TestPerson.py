@@ -5,7 +5,6 @@ class TestPerson(unittest.TestCase):
 
     def testSetStageName(self):
         self.person1 = Person.Person("Selena Gómez")
-        self.assertEqual("", self.person1.getStageName())
         self.person1.setStageName("Selena")
         self.assertEqual("Selena", self.person1.getStageName())
 
@@ -45,15 +44,9 @@ class TestPerson(unittest.TestCase):
         self.person8.addAlbums("Limón y Sal")
         self.assertEqual("Limón y Sal", self.person8.getAlbums())
 
-    def testGetIdentifier(self):
-        self.person9 = Person.Person("Rihanna")
-        self.assertEqual("Rihanna", self.person9.getIdentifier())
-
     def testGetStageName(self):
         self.person10 = Person.Person("Sia")
-        self.assertEqual("", self.person10.getStageName())
-        self.person10.setStageName("Selena")
-        self.assertEqual("Selena", self.person10.getStageName())
+        self.assertEqual("Sia", self.person10.getStageName())
 
     def testGetRealName(self):
         self.person11 = Person.Person("Katy Perry")
@@ -95,6 +88,18 @@ class TestPerson(unittest.TestCase):
         self.person18 = Person.Person("David Guetta")
         albums = ["Just a Little More Love", "Guetta Blaster", "One Love", "Listen"]
         self.assertEqual("Just a Little More Love, Guetta Blaster, One Love, Listen", self.person18.getString(albums))
+
+    def testGetGenre(self):
+        self.person19 = Person.Person("Steve Aoki")
+        self.assertEqual("", self.person19.getGenre())
+        self.person19.setGenre("Electronic")
+        self.assertEqual("Electronic", self.person19.getGenre())
+
+    def testSetGenre(self):
+        self.person20 = Person.Person("Steve Aoki")
+        self.assertEqual("", self.person20.getGenre())
+        self.person20.setGenre("Electronic")
+        self.assertEqual("Electronic", self.person20.getGenre())
 
 if __name__ == "__main__":
     unittest.main(argv = ["ignored", "-v"], exit = False)
