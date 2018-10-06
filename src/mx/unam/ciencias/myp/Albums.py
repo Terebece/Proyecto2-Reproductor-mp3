@@ -20,11 +20,20 @@ class Albums():
     def getGenre(self):
         return self.genre
 
-    def getGroup(self):
-        return self.group
+    def getArtist(self):
+        return self.artist
 
     def getSongs(self):
-        return self.songs
+        obt = ""
+        i = 0
+        for elem in self.songs:
+            if self.songs[i] == elem:
+                if(i == (len(self.songs)-1)):
+                    obt = obt + elem
+                else:
+                    obt = obt + elem + ", "
+                i += 1
+        return obt
 
     def setName(self, name):
         self.name = name
@@ -32,8 +41,8 @@ class Albums():
     def setYear(self, year):
         self.year = year
 
-    def setGroup(self, group):
-        self.group = group
+    def setArtist(self, artist):
+        self.artist = artist
 
     def setGenre(self, genre):
         self.genre = genre
