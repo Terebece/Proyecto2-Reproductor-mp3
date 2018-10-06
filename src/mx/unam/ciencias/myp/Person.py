@@ -1,16 +1,14 @@
-import BandaMusical
-
 class Person():
 
-    tipos = ["Autor", "Compositor", "Interprete", "Integrante de ", "Cantautor", "DJ"]
+    tipos = ["Autor", "Compositor", "Interprete", "Integrante de grupo", "Cantautor", "DJ"]
 
-    def __init__(self, identifier):
-        self.identifier = identifier
-        self.stageName = ""
+    def __init__(self, stageName):
+        self.stageName = stageName
         self.realName = ""
         self.birthDate = ""
         self.deathDate = ""
         self.occupation = ""
+        self.genre = ""
         self.songs = []
         self.albums = []
 
@@ -50,6 +48,9 @@ class Person():
                 i += 1
         return obt
 
+    def getGenre(self):
+        return self.self
+
     def setStageName(self, stageName):
         self.stageName = stageName
 
@@ -61,6 +62,9 @@ class Person():
 
     def setDeathDate(self, deathDate):
         self.deathDate = deathDate
+
+    def setGenre(self, genre):
+        self.genre = genre
 
     def addOcuppation(self, occupation):
         if len(self.occupation) > 0:
