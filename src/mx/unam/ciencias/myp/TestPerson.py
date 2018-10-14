@@ -34,15 +34,15 @@ class TestPerson(unittest.TestCase):
 
     def testAddSongs(self):
         self.person7 = Person.Person("Ellie Goulding")
-        self.assertEqual("", self.person7.getSongs())
+        self.assertEqual([], self.person7.getSongs())
         self.person7.addSongs("Love Me Like You Do")
-        self.assertEqual("Love Me Like You Do", self.person7.getSongs())
+        self.assertEqual(["Love Me Like You Do"], self.person7.getSongs())
 
     def testAddAlbums(self):
         self.person8 = Person.Person("Julieta Venegas")
-        self.assertEqual("", self.person8.getAlbums())
+        self.assertEqual([], self.person8.getAlbums())
         self.person8.addAlbums("Limón y Sal")
-        self.assertEqual("Limón y Sal", self.person8.getAlbums())
+        self.assertEqual(["Limón y Sal"], self.person8.getAlbums())
 
     def testGetStageName(self):
         self.person10 = Person.Person("Sia")
@@ -74,20 +74,15 @@ class TestPerson(unittest.TestCase):
 
     def testGetSongs(self):
         self.person16 = Person.Person("Alan Walker")
-        self.assertEqual("", self.person16.getSongs())
+        self.assertEqual([], self.person16.getSongs())
         self.person16.addSongs("Animals")
-        self.assertEqual("Animals", self.person16.getSongs())
+        self.assertEqual(["Animals"], self.person16.getSongs())
 
     def testGetAlbums(self):
         self.person17 = Person.Person("Belanova")
-        self.assertEqual("", self.person17.getAlbums())
+        self.assertEqual([], self.person17.getAlbums())
         self.person17.addAlbums("Viaje al centro del corazón")
-        self.assertEqual("Viaje al centro del corazón", self.person17.getAlbums())
-
-    def testGetString(self):
-        self.person18 = Person.Person("David Guetta")
-        albums = ["Just a Little More Love", "Guetta Blaster", "One Love", "Listen"]
-        self.assertEqual("Just a Little More Love, Guetta Blaster, One Love, Listen", self.person18.getString(albums))
+        self.assertEqual(["Viaje al centro del corazón"], self.person17.getAlbums())
 
     def testGetGenre(self):
         self.person19 = Person.Person("Steve Aoki")

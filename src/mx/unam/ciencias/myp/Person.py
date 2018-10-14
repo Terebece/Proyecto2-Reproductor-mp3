@@ -28,22 +28,10 @@ class Person():
         return self.occupation
 
     def getSongs(self):
-        return self.getString(self.songs)
+        return self.songs
 
     def getAlbums(self):
-        return self.getString(self.albums)
-
-    def getString(self, lista):
-        obt = ""
-        i = 0
-        for elem in lista:
-            if lista[i] == elem:
-                if(i == (len(lista)-1)):
-                    obt = obt + elem
-                else:
-                    obt = obt + elem + ", "
-                i += 1
-        return obt
+        return self.albums
 
     def getGenre(self):
         return self.genre
