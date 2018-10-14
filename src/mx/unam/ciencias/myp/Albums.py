@@ -4,8 +4,7 @@ class Albums():
         self.path = path
         self.name = name
         self.year = 0
-        self.genre = ""
-        self.artist = ""
+        self.performer = ""
         self.songs = []
 
     def getPath(self):
@@ -17,23 +16,11 @@ class Albums():
     def getYear(self):
         return self.year
 
-    def getGenre(self):
-        return self.genre
-
-    def getArtist(self):
-        return self.artist
+    def getPerformer(self):
+        return self.performer
 
     def getSongs(self):
-        obt = ""
-        i = 0
-        for elem in self.songs:
-            if self.songs[i] == elem:
-                if(i == (len(self.songs)-1)):
-                    obt = obt + elem
-                else:
-                    obt = obt + elem + ", "
-                i += 1
-        return obt
+        return self.songs
 
     def setName(self, name):
         self.name = name
@@ -41,11 +28,8 @@ class Albums():
     def setYear(self, year):
         self.year = year
 
-    def setArtist(self, artist):
-        self.artist = artist
-
-    def setGenre(self, genre):
-        self.genre = genre
+    def setPerformer(self, artist):
+        self.performer = artist
 
     def addSong(self, song):
         self.songs.append(song)

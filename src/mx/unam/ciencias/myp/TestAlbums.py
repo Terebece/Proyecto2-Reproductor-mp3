@@ -19,23 +19,18 @@ class TestPerson(unittest.TestCase):
         self.album4.setYear(2017)
         self.assertEqual(2017, self.album4.getYear())
 
-    def testGetGenre(self):
-        self.album5 = Albums.Albums("/Users/teresabecerril/Music", "Neon Future")
-        self.assertEqual("", self.album5.getGenre())
-        self.album5.setGenre("Electronic")
-        self.assertEqual("Electronic", self.album5.getGenre())
-
-    def testGetArtist(self):
+    def testGetPerformer(self):
         self.album6 = Albums.Albums("/Users/teresabecerril/Music", "A Head Full of Dreams")
-        self.assertEqual("", self.album6.getArtist())
-        self.album6.setArtist("Coldplay")
-        self.assertEqual("Coldplay", self.album6.getArtist())
+        self.assertEqual("", self.album6.getPerformer())
+        self.album6.setPerformer("Coldplay")
+        self.assertEqual("Coldplay", self.album6.getPerformer())
 
     def testGetSongs(self):
         self.album7 = Albums.Albums("/Users/teresabecerril/Music", "Witness")
-        self.assertEqual("", self.album7.getSongs())
+        self.assertEqual([], self.album7.getSongs())
         self.album7.addSong("Chained to the Rhythm")
-        self.assertEqual("Chained to the Rhythm", self.album7.getSongs())
+        self.album7.addSong("E.T.")
+        self.assertEqual(["Chained to the Rhythm", "E.T."], self.album7.getSongs())
 
     def testSetName(self):
         self.album8 = Albums.Albums("/Users/teresabecerril/Music", "One of the Boys")
@@ -49,23 +44,18 @@ class TestPerson(unittest.TestCase):
         self.album7.setYear(2017)
         self.assertEqual(2017, self.album7.getYear())
 
-    def testSetGenre(self):
-        self.album8 = Albums.Albums("/Users/teresabecerril/Music", "Neon Future")
-        self.assertEqual("", self.album8.getGenre())
-        self.album8.setGenre("Electronic")
-        self.assertEqual("Electronic", self.album8.getGenre())
-
-    def testSetArtist(self):
+    def testSetPerformer(self):
         self.album9 = Albums.Albums("/Users/teresabecerril/Music", "A Head Full of Dreams")
-        self.assertEqual("", self.album9.getArtist())
-        self.album9.setArtist("Coldplay")
-        self.assertEqual("Coldplay", self.album9.getArtist())
+        self.assertEqual("", self.album9.getPerformer())
+        self.album9.setPerformer("Coldplay")
+        self.assertEqual("Coldplay", self.album9.getPerformer())
 
     def testSetSongs(self):
         self.album10 = Albums.Albums("/Users/teresabecerril/Music", "Witness")
-        self.assertEqual("", self.album10.getSongs())
+        self.assertEqual([], self.album10.getSongs())
         self.album10.addSong("Chained to the Rhythm")
-        self.assertEqual("Chained to the Rhythm", self.album10.getSongs())
+        self.album10.addSong("E.T.")
+        self.assertEqual(["Chained to the Rhythm", "E.T."], self.album10.getSongs())
 
 if __name__ == "__main__":
     unittest.main(argv = ["ignored", "-v"], exit = False)

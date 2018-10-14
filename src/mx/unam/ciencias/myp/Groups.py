@@ -21,7 +21,7 @@ class Groups():
         return self.getString(self.integrants)
 
     def getSongs(self):
-        return self.getString(self.songs)
+        return self.songs 
 
     def getGenre(self):
         return self.genre

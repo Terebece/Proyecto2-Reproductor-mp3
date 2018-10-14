@@ -28,10 +28,10 @@ class TestPerson(unittest.TestCase):
 
     def testGetSongs(self):
         self.group6 = Groups.Groups("Maroon 5")
-        self.assertEqual("", self.group6.getSongs())
+        self.assertEqual([], self.group6.getSongs())
         self.group6.addSong("Sugar")
         self.group6.addSong("What Lovers Do")
-        self.assertEqual("Sugar, What Lovers Do", self.group6.getSongs())
+        self.assertEqual(["Sugar", "What Lovers Do"], self.group6.getSongs())
 
     def testGetGenre(self):
         self.group7 = Groups.Groups("Pink Floyd")
@@ -64,10 +64,10 @@ class TestPerson(unittest.TestCase):
 
     def testSetSongs(self):
         self.group12 = Groups.Groups("Maroon 5")
-        self.assertEqual("", self.group12.getSongs())
+        self.assertEqual([], self.group12.getSongs())
         self.group12.addSong("Sugar")
         self.group12.addSong("What Lovers Do")
-        self.assertEqual("Sugar, What Lovers Do", self.group12.getSongs())
+        self.assertEqual(["Sugar", "What Lovers Do"], self.group12.getSongs())
 
     def testSetGenre(self):
         self.group13 = Groups.Groups("Pink Floyd")
