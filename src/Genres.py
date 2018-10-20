@@ -1,6 +1,10 @@
 class Genres():
+    '''Clase auxiliar para buscar el género'''
 
     def getStringGenre(self, numGenre):
+        '''Función que regresa el nombre del género
+        correspondiente al número ingresado.''
+'
         switcher = {
             1:   "Blues",
             2:   "Classic Rock",

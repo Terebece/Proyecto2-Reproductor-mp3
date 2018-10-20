@@ -2,38 +2,42 @@ import eyed3
 import os.path, os
 import threading
 import time
+from pathlib import Path
 import Genres
 import Rolas
-import Dao
+from Dao import Dao
 
 class Miner():
-
-    path = "~/Music"
+    '''Clase Miner que nos ayuda a leer las etiquetas de la rola.'''
+    path = str(Path.home().resolve()) + "/Music"
     rolas = []
     total = 0
     iterador = None
 
     def __init__(self):
-        files = os.walk(path)
+        self.files = os.walk(self.path)
         self.runMiner()
-        self.reproductor = Reproductor.Reproductor()
         read = threading.Thread(target = self.readTags)
         read.daemon = True
         read.start()
 
     def runMiner(self):
+        '''Funcion que hace que el programa se ejecute.'''
         self.readDirectory()
         total = len(self.rolas)
-        sorted(self.rolas, key = cmpToKey(comperRola))
+        sorted(self.rolas, key = self.cmpToKey(self.comperRolas))
 
-    def readDirectory(self):
+    def readDirectory(rolas):
+        '''Funcion que lee el directorio y va agregando los archivos mp3'''
         for root, albums, songs in files:
             for rola in songs:
                 (name, extension) = os.path.splitext(rola)
                 if extension == ".mp3":
                     rolas.append(name + extension)
+        print(rolas)
 
-    def cmpToKey(cmp):
+    def cmpToKey(self, cmp):
+        '''Funcion que combierte a cmp a una llave'''
         class K:
             def __init__(self, rola, *args):
                 self.rola = rola
@@ -52,24 +56,27 @@ class Miner():
         return K
 
     def comperRolas(self, rola1, rola2):
-        if (os.path.abspath(a) < os.path.abspath(b))
-                return -1;
-        if (os.path.abspath(a) > os.path.abspath(b))
-                return 1;
+        '''Funcion que compara las rutas de dos rolas.'''
+        if os.path.abspath(rola1) < os.path.abspath(rola2):
+                return -1
+        if os.path.abspath(rola1) > os.path.abspath(rola2):
+                return 1
         return 0
 
     def readTags(self):
+        '''Funcion que lee las etiquetas de todas las rolas que se encuentren.'''
         if total > 0:
             iterador = iter(self.rolas)
-            try:
-                while True:
+            while True:
+                try:                
                     self.readRola(iterador.__next__())
-            except StopIteration:
-                break
+                except StopIteration:
+                    break
 
     def readRola(self, song):
-        path = os.path.abspath(song)
-        tags = eyed3.load(path).tag
+        '''Funcion auxiliar que lee las etiquetas de la rola y la envia a la base de datos.'''
+        pathRola = self.path + "/" + song
+        tags = eyed3.load(pathRola).tag
 
         if len(tags) == 0:
             return
@@ -78,17 +85,17 @@ class Miner():
 
         if tags.artist != None:
             rola.setPerformer(tags.artist)
-        elif:
+        else:
             rola.setPerformer("Unknown")
 
         if tags.title != None:
             rola.setTitle(tags.title)
-        elif:
+        else:
             rola.setTitle("Unknown")
 
         if tags.album != None:
             rola.setAlbum(album)
-        elif:
+        else:
             rola.setAlbum("Unknown")
 
         if tags.year != 0:
@@ -101,7 +108,7 @@ class Miner():
             if tags.track_num.find("/") != -1:
                 trackNum = tags.track_num.split("/")
                 track = int(trackNum[0])
-            elif
+            else:
                 track = int(tags.track_num)
             rola.setTrack(track)
 
@@ -109,4 +116,5 @@ class Miner():
             genre = Genres.Genres().getStringGenre(tags.genre)
             rola.setGenre(genre)
 
-        self.Dao.insertRola(rola)
+        Dao.insertRola(rola)
+c = Miner()
