@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.0 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkWindow" id="ProgressMiner">
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkProgressBar" id="Progreso">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="show_text">True</property>
+      </object>
+    </child>
+    <child type="titlebar">
+      <object class="GtkLabel" id="Minero">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Minero</property>
+      </object>
+    </child>
+  </object>
+</interface>
